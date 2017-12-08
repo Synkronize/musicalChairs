@@ -11,58 +11,68 @@ import java.net.URL;
  */
 public class PlayerFeatures {
     public URL songURL;
+    public URL currentSelectedSongURL;
     public static Mixer mixer;
     public static Clip clip;
-    final int PAUSE = 1;
-    PlayerFeatures(){
+    public AudioInputStream audioStream;
+
+    PlayerFeatures() {
         Mixer.Info[] mixInfos = AudioSystem.getMixerInfo();
         mixer = AudioSystem.getMixer(mixInfos[0]);
-        DataLine.Info dataInfo = new DataLine.Info(Clip.class,null);
-        try{
-            clip = (Clip)mixer.getLine(dataInfo);
-        }catch(LineUnavailableException lue){
+        DataLine.Info dataInfo = new DataLine.Info(Clip.class, null);
+        try {
+            clip = (Clip) mixer.getLine(dataInfo);
+        } catch (LineUnavailableException lue) {
             lue.printStackTrace();
         }
 
 
     }
 
-    Boolean playSong(URL songURL, JList<String> playList, Boolean pause,Boolean IsPaused) {
-      if (pause){
-          if(clip.isRunning()) {
-              clip.stop();
-              return pause;
-          }
-      }
-      if(IsPaused){
-          if(songURL)
-          System.out.println(playList.getSelectedValue());
-          System.out.println("how");
-          clip.start();
-          return false;
+    boolean playSong(URL songURL, JList<String> playList, Boolean isPaused,URL currentSelectedSongURL) {
+        System.out.println(songURL + " "+currentSelectedSongURL);
+        if(isPaused && songURL.equals(currentSelectedSongURL))
+           return resumeSong(clip);
+        else{
+
+            try {
+                audioStream = AudioSystem.getAudioInputStream(songURL);
+                if(!clip.isOpen()) {
+                    clip.open(audioStream);
+                }
+                else{
+                    clip.stop();
+                    clip.flush();
+                    clip.close();
+                    clip.open(audioStream);
+                }
+                clip.start();
+            }
+            catch(IOException IoEvent){
+                IoEvent.printStackTrace();
+            }
+            catch(UnsupportedAudioFileException uafException){
+                uafException.printStackTrace();
+            }
+            catch (LineUnavailableException luException){
+                luException.printStackTrace();
+            }
+
         }
-      else {
-              clip.stop();
-              clip.flush();
-              clip.close();
-              songURL = Player.class.getResource(playList.getSelectedValue());
+        return false;
+    }
+    boolean pauseSong(Clip clip){
+        clip.stop();
+        return true;
 
+    }
 
-          try {
-              AudioInputStream audioStream = AudioSystem.getAudioInputStream(songURL);
-              if(!clip.isOpen()) {
-                  clip.open(audioStream);
-              }
-              clip.start();
-          } catch (LineUnavailableException lue) {
-              lue.printStackTrace();
-          } catch (UnsupportedAudioFileException uafe) {
-              uafe.printStackTrace();
-          } catch (IOException ioe) {
-              ioe.printStackTrace();
-          }
-      }
-      return  pause;
-  }
+    boolean resumeSong(Clip clip){
+        System.out.println("In resume song");
+        clip.start();
+        return false;
+
+    }
 
 }
+

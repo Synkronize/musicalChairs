@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
+import static java.lang.Thread.sleep;
 
 
 /**
@@ -33,7 +36,9 @@ public class Player{
   public PlayerFeatures features;
   boolean Ispaused;
   boolean pauseIt;
-
+  int min = 10;
+  int max = 27;
+  int randomnum;
 
 
 
@@ -72,6 +77,7 @@ public class Player{
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         panelTop.add(scrollPane);
 
+
         try{
             Image img = ImageIO.read(getClass().getResource("Play24.gif"));
             Image pauseImg = ImageIO.read(getClass().getResource("Pause16.gif"));
@@ -103,14 +109,14 @@ public class Player{
     class listListener implements ListSelectionListener{
         @Override
         public void valueChanged(ListSelectionEvent event) {
-            if(event.getValueIsAdjusting())
-                features.songURL = Player.class.getResource(playList.getSelectedValue());
+
         }
     }
     class pauseListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent event) {
-            Ispaused = features.playSong(features.songURL,playList,true,Ispaused);
+            if(features.clip.isActive())
+                Ispaused = features.pauseSong(features.clip);
 
 
         }
@@ -119,21 +125,12 @@ public class Player{
         @Override
         public void mouseClicked(MouseEvent event) {
             if(event.getClickCount() == 2){
-
-                if(Ispaused && (features.songURL.equals(Player.class.getResource(playList.getSelectedValue())))) {
-                    features.playSong(features.songURL, playList, false, Ispaused);
-                    Ispaused = false;
-                }
-                else {
-                    features.songURL = Player.class.getResource(playList.getSelectedValue());
-                    features.playSong(features.songURL, playList, false,Ispaused );
-                }
+                features.songURL = Player.class.getResource(playList.getSelectedValue());
+               Ispaused = features.playSong(features.songURL,playList,Ispaused,features.currentSelectedSongURL);
             }
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
+            if(event.getClickCount() == 1){
+                features.currentSelectedSongURL = Player.class.getResource(playList.getSelectedValue());
+            }
         }
 
         @Override
@@ -142,9 +139,13 @@ public class Player{
         }
 
         @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+
+        @Override
         public void mousePressed(MouseEvent e) {
-            features.songURL = Player.class.getResource(playList.getSelectedValue());
-            System.out.println(playList.getSelectedValue());
+
         }
 
         @Override
@@ -155,19 +156,49 @@ public class Player{
     class playListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent event) {
+            randomnum = ThreadLocalRandom.current().nextInt(min,max+1);
+            if(Ispaused) {
 
-            if(Ispaused && (features.songURL.equals(Player.class.getResource(playList.getSelectedValue())))) {
-                Ispaused = features.playSong(features.songURL, playList, false, Ispaused);
+
+
+
+                if (!features.songURL.equals(features.currentSelectedSongURL)) {
+                    Ispaused = features.playSong(features.currentSelectedSongURL, playList, Ispaused, features.currentSelectedSongURL);
+                }
+                else
+                    Ispaused = features.playSong(features.songURL,playList,Ispaused,features.currentSelectedSongURL);
+            }
+            else{
+                if (!features.songURL.equals(features.currentSelectedSongURL)) {
+                    Ispaused = features.playSong(features.currentSelectedSongURL, playList, Ispaused, features.currentSelectedSongURL);
+                }
+                else
+                    Ispaused = features.playSong(features.songURL,playList,Ispaused,features.currentSelectedSongURL);
+
 
             }
+            Game();
 
-            else {
-                System.out.println("we in here");
-                System.out.println(playList.getSelectedValue());
-                Ispaused = false;
-                features.playSong(features.songURL, playList, false, Ispaused);
+
+
+        }
+        void Game(){
+            long use = randomnum *1000;
+            try {
+
+                sleep(use);
+              Ispaused =  features.pauseSong(features.clip );
+            }
+            catch (InterruptedException Iexception){
+                Iexception.printStackTrace();
             }
         }
+
+
+
+
+
+
     }
 
 
