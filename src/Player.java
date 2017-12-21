@@ -6,10 +6,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -36,6 +33,11 @@ public class Player{
   public PlayerFeatures features;
   boolean Ispaused;
   boolean pauseIt;
+  static JMenuBar menuBar;
+  static JMenu menu;
+  static JMenuItem chooseDirectory;
+
+
   int min = 10;
   int max = 27;
   int randomnum;
@@ -76,6 +78,19 @@ public class Player{
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         panelTop.add(scrollPane);
+        menuBar = new JMenuBar();
+        menu = new JMenu("File");
+        menu.setMnemonic(KeyEvent.VK_F);
+        chooseDirectory = new JMenuItem("Select Music Folder",KeyEvent.VK_S);
+        chooseDirectory.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1,ActionEvent.ALT_MASK));
+        chooseDirectory.addActionListener(new chooseDirectoryListener());
+        menu.add(chooseDirectory);
+        menuBar.add(menu);
+        frame.setJMenuBar(menuBar);
+
+
+
+
 
 
         try{
@@ -177,28 +192,36 @@ public class Player{
 
 
             }
-            Game();
+
+           // Game();
 
 
 
         }
-        void Game(){
-            long use = randomnum *1000;
-            try {
 
-                sleep(use);
-              Ispaused =  features.pauseSong(features.clip );
-            }
-            catch (InterruptedException Iexception){
-                Iexception.printStackTrace();
-            }
+      //  void Game(){
+       //     long use = randomnum *1000;
+       //     try {
+
+        //        sleep(use);
+       //       Ispaused =  features.pauseSong(features.clip );
+           // }
+     //       catch (InterruptedException Iexception){
+     //           Iexception.printStackTrace();
+     //       }
+      //  }
+
+
+
+
+
+
+    }
+    class chooseDirectoryListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("wow");
         }
-
-
-
-
-
-
     }
 
 
