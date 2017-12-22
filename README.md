@@ -8,6 +8,7 @@ This is a program, that plays wav music files, and will automatically pause them
 5.Press Play the resume the song, or double click to start another song any time the song is paused.
 # Known Bugs
 Because of the way the game works as defined in the code, the game will sleep the main thread and freeze the player until the song is paused.
+
 Make sure when you're trying to choose a directory to choose either an actual folder or a song in the target directory. Apparently using the drop down list on the top of the file explorer does not behave correctly.
 # Built With
 mainly the Java Swing API, File API, various listener API, javasound API, and more standard java APIs.
