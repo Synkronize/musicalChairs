@@ -7,19 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b672892-4231-416c-b652-eb2ce9d2a95f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/musicalChairs_jar/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/musicalChairs_jar/musicalChairs.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/musicalChairs/Player$listListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/musicalChairs/Player$pauseListener.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/musicalChairs/Player$1.class" afterPath="$PROJECT_DIR$/out/production/musicalChairs/Player$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/musicalChairs/Player$chooseDirectoryListener.class" afterPath="$PROJECT_DIR$/out/production/musicalChairs/Player$chooseDirectoryListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/musicalChairs/Player$listMouseListener.class" afterPath="$PROJECT_DIR$/out/production/musicalChairs/Player$listMouseListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/musicalChairs/Player$playListener.class" afterPath="$PROJECT_DIR$/out/production/musicalChairs/Player$playListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/musicalChairs/Player.class" afterPath="$PROJECT_DIR$/out/production/musicalChairs/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Player.java" afterPath="$PROJECT_DIR$/src/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayerFeatures.java" afterPath="$PROJECT_DIR$/src/PlayerFeatures.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +26,7 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
+            <state relative-caret-position="4915">
               <caret line="307" column="0" lean-forward="true" selection-start-line="307" selection-start-column="0" selection-end-line="307" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -66,8 +54,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="129" lean-forward="false" selection-start-line="1" selection-start-column="129" selection-end-line="1" selection-end-column="129" />
+            <state relative-caret-position="119">
+              <caret line="7" column="271" lean-forward="false" selection-start-line="7" selection-start-column="271" selection-end-line="7" selection-end-column="271" />
               <folding />
             </state>
           </provider>
@@ -81,7 +69,6 @@
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <marker date="1513921449224" expanded="true" signature="331:617" ph="/**...*/" />
               </folding>
             </state>
           </provider>
@@ -559,7 +546,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <marker date="1513921449224" expanded="true" signature="331:617" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -579,7 +565,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <marker date="1513921449224" expanded="true" signature="331:617" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -599,7 +584,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <marker date="1513921449224" expanded="true" signature="331:617" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -619,7 +603,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <marker date="1513921449224" expanded="true" signature="331:617" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -639,7 +622,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <marker date="1513921449224" expanded="true" signature="331:617" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -668,21 +650,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerFeatures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <marker date="1513921449224" expanded="true" signature="331:617" ph="/**...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
+        <state relative-caret-position="4915">
           <caret line="307" column="0" lean-forward="true" selection-start-line="307" selection-start-column="0" selection-end-line="307" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -706,10 +676,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerFeatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="129" lean-forward="false" selection-start-line="1" selection-start-column="129" selection-end-line="1" selection-end-column="129" />
+        <state relative-caret-position="119">
+          <caret line="7" column="271" lean-forward="false" selection-start-line="7" selection-start-column="271" selection-end-line="7" selection-end-column="271" />
           <folding />
         </state>
       </provider>
